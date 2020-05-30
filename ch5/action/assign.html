@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Go Web Programming</title>
+    </head>
+    <body>
+	<div>Dot value is {{.}}.</div>
+	<div>
+	    {{with ""}}
+	    Dot value is {{.}}.
+	    {{ else }}
+	    Dot value is also {{.}}.
+	    {{end}}
+	</div>
+	<div>Dot value is returned to {{.}}.</div>
+    </body>
+</html>
