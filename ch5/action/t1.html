@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<meta http-equiv=" X-UA-Compatible" content="IE=9">
+	<title>Go Web Programming</title>
+    </head>
+    <body>
+	<div>Here is t1.html (before include).</div>
+	<div>Dot value in t1.html - [{{.}}]</div>
+	<hr/>
+	{{template "t2.html" .}}
+	<hr/>
+	<div>Here is t1.html (after include).</div>
+    </body>
+</html>
