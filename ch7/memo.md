@@ -1,8 +1,6 @@
 # Chapter7: Go web services
 
----
-
-## 7.1: Intorduction to web services
+## 7.1: Introduction to web services
 Web services types
 
 - SOAP-base: used in enterprise system
@@ -25,8 +23,6 @@ Web services types
 	- o: convert action to resource, `POST /user/456/activation HTTP/1.1`
 	- o: convert action to resouce property, `PATCH /user/456 HTTP/1.1`
 - XML-RPC
-
----
 
 ## 7.4: Parse and generate XML by golang
 XML is used in not describing but sending/receiving data. Officially recommended and defined in W3C.
@@ -58,8 +54,6 @@ type Author struct {
 }
 ```
 
----
-
 ## 7.5: Parse and generate JSON by golang
 JSON (JavaScript Serialized Object Notation) is JS-based data-format. Stands along the idea that *readable for both human and machine*. Firstly defined by Douglas Crockford, now specified in RFC 7159 and ECMA-404. JSON is frequently used in REST-base Web services.
 
@@ -69,8 +63,6 @@ Go can parse a JSON file with both Decoder and Unmarshal. We can use them proper
 Decoder is appropriate for the case of streaming data from `io.Reader` (like Body of `http.Request`).
 Unmarshal is appropriate for the case of character data or in-memory data.
 
----
-
 ## 7.6: Build Go web service
 
 `$ go run server.go data.go`
@@ -78,8 +70,6 @@ Unmarshal is appropriate for the case of character data or in-memory data.
 Interact REST API via curl command (example: retrieve one post)
 
 `$ curl -i -X GET http://127.0.0.1:8080/post/1`
-
----
 
 ## 7.7: Summary
 - Recently, Go is mainly used for building web services
