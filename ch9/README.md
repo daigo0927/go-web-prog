@@ -26,7 +26,7 @@ Channel can be seen as a kind of box. Goroutines can interact only with this box
 
 - `ch := make(chan int)`: int channel
 - `ch := make(chan int, 10)`: int channel with size 10 buffer
-- `ch <= 1`: put int 1 into ch(annel)
+- `ch <- 1`: put int 1 into ch(annel)
 - `i := <- ch`: get value from ch and assign it to i
 - `ch := make(chan <- string)`: send-only string channel
 - `ch := make(<-chan string)`: receive-only string channel
@@ -36,3 +36,24 @@ Channel can be seen as a kind of box. Goroutines can interact only with this box
 Channel with buffer allows processes to continue until the channel is empty. This is useful when you want to limit the amount of process per time.
 
 ## 9.4: Web application and concurrent execution
+
+Concurrent execution introduced above can be used in web applications.
+In this chapter, we are going to create a mosaic photo generation application.
+This application simply make user to upload an image, then generate mosaic photo based on it.
+We assume that tile image is prepared and its size is modified.
+
+See [https://github.com/mushahiroyuki/gowebprog/tree/master/ch09](https://github.com/mushahiroyuki/gowebprog/tree/master/ch09) for the static files.
+
+- Build: `go build` under `ch9/mosaic` directory
+- Execute: `GOMAXPROCS=1 ./mosaic` under `ch9/mosaic` with built file
+
+## Summary
+- Go web server itself has concurrency. Each received requests are processed by each goroutine
+- Concurrency and parallelism are complement but different. Concurrency inplies multiple processes to be begun in the same time, executed, end, and enables them to interact with. Parallelism just say multiple execution in the same time.
+- Go provides namely two functions - goroutine and channel - to implement concurrency. Go does not support parallel operation directly.
+- Goroutine is used to create concurrent execution. Channel enables goroutines to interact with.
+- Non-buffered channel is synchronous, stop to write messages while containing some data. Buffered channel allows asynchronous writing while the buffer has space.
+- `select` can be used to select channel (firstly prepared one) from multiple ones
+- `WaitGroup` also can be used to synchronize channels
+- Concurrent web application runs much faster than sequential one, even on single CPU
+- Concurrent-type web application possibly benefits from concurrent execution automatically
