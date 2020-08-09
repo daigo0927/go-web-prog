@@ -9,7 +9,7 @@ var Db *sql.DB
 
 func init() {
 	var err error
-	Db, err = sql.Open("postgres", "user=gwp dbname=gwp password=gwp sslmode=disable")
+	Db, err = sql.Open("postgres", "host=ec2-107-20-104-234.compute-1.amazonaws.com user=jzsnhrabkpfqff dbname=dbrn6m2v1ectb2 password=5bbbe01ee7e899b5e3f69f653f4427731dec8fb20c5efa4e43e43cb7c268e52c sslmode=disable")
 	if err != nil {
 		panic(err)
 	}
