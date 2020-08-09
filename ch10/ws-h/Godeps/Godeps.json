@@ -1,0 +1,242 @@
+{
+	"ImportPath": "go-web-prog/ch10/ws-h",
+	"GoVersion": "go1.11",
+	"GodepVersion": "v80",
+	"Deps": [
+		{
+			"ImportPath": "github.com/alexbrainman/sspi",
+			"Rev": "e580b900e9f5657daa5473021296289be6da2661"
+		},
+		{
+			"ImportPath": "github.com/alexbrainman/sspi/negotiate",
+			"Rev": "e580b900e9f5657daa5473021296289be6da2661"
+		},
+		{
+			"ImportPath": "github.com/hashicorp/go-uuid",
+			"Comment": "v1.0.2",
+			"Rev": "6195a4f20692188e0a389def25559731d1e130f9"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/aescts/v2",
+			"Comment": "v2.0.0-1-g0fccc89",
+			"Rev": "0fccc897c59f4a8409c84f0a677f14f12a1de0c0"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/dnsutils/v2",
+			"Comment": "v2.0.0",
+			"Rev": "90052734000be120c409677a88cb517e5b49dbf4"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gofork/encoding/asn1",
+			"Comment": "v1.0.0",
+			"Rev": "dc7c13fece037a4a36e2b3c69db4991498d30692"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gofork/x/crypto/pbkdf2",
+			"Comment": "v1.0.0",
+			"Rev": "dc7c13fece037a4a36e2b3c69db4991498d30692"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/goidentity/v6",
+			"Comment": "v6.0.1",
+			"Rev": "836ef0c4025b66a750604bb79d41ace085366777"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/asn1tools",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/client",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/config",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/credentials",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/crypto",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/crypto/common",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/crypto/etype",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/crypto/rfc3961",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/crypto/rfc3962",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/crypto/rfc4757",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/crypto/rfc8009",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/gssapi",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana/addrtype",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana/adtype",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana/asnAppTag",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana/chksumtype",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana/errorcode",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana/etypeID",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana/flags",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana/keyusage",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana/msgtype",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana/nametype",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/iana/patype",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/kadmin",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/keytab",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/krberror",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/messages",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/pac",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/service",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/spnego",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/gokrb5/v8/types",
+			"Comment": "v8.3.0",
+			"Rev": "e4c9668412963baed52fe85dbe442c8dbcaf3aa6"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/rpc/v2/mstypes",
+			"Comment": "v2.0.0-13-gff5be05",
+			"Rev": "ff5be0516a717f1b0ee999f3f35b2ab42ea8ff01"
+		},
+		{
+			"ImportPath": "github.com/jcmturner/rpc/v2/ndr",
+			"Comment": "v2.0.0-13-gff5be05",
+			"Rev": "ff5be0516a717f1b0ee999f3f35b2ab42ea8ff01"
+		},
+		{
+			"ImportPath": "github.com/lib/pq",
+			"Comment": "v1.6.0",
+			"Rev": "d408f9c9485706b60bb2b9b9718f3c54f077b506"
+		},
+		{
+			"ImportPath": "github.com/lib/pq/oid",
+			"Comment": "v1.6.0",
+			"Rev": "d408f9c9485706b60bb2b9b9718f3c54f077b506"
+		},
+		{
+			"ImportPath": "github.com/lib/pq/scram",
+			"Comment": "v1.6.0",
+			"Rev": "d408f9c9485706b60bb2b9b9718f3c54f077b506"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/md4",
+			"Rev": "06a226fb4e3765ef3f48aa2852b401bc7b98e981"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/pbkdf2",
+			"Rev": "06a226fb4e3765ef3f48aa2852b401bc7b98e981"
+		},
+		{
+			"ImportPath": "golang.org/x/net/http2/hpack",
+			"Rev": "0ba52f642ac2f9371a88bfdde41f4b4e195a37c0"
+		}
+	]
+}
