@@ -79,3 +79,108 @@ Problems faced in my case and solutions;
 	- `DATABASE=> CREATE TABLE posts (id serial PRIMARY KEY, content TEXT, author VARCHAR(255))`
   - Post some content; `$ curl -i -X POST -H "Content-Type: application/json" -d '{"content":"My first post", "author":"Sau Sheong"}' https://<heroku-app-name>.herokuapp.com:/post/`
   - Get (retrieve) content: `$ curl -i -X GET https://<heroku-app-name>.herokuapp.com/post/1`
+
+
+## 10.3: Deploy to Google App Engine
+
+GAE has some advantages in performance and scalability over other PaaS like Heroku. 
+GAE automatically scales out the application as needed, implements many tooles and utilities (Google account authorization, sending mail, log generation, etc).
+GAE also has some disadvantages; file system is read-only, request is keep for 60 min, does not provide direct network access. This means that GAE can not normally access to the other services out of the application environment.
+
+Procedures in GAE deployment;
+
+- Code modification: add statement to call Google library
+- Create `app.yaml`
+- Create GAE application
+- Push codes to GAE application
+
+Problems and solutions;
+
+- Table creation
+  - Create Google CloudSQL instance (MySQL)
+  - Launch Google Cloud Console and access into CloudSQL: `$ gcloud sql connect <instance-id> --user=root`, and put password
+  - Create database and table in it
+	- `mysql> CREATE DATABASE <database-name>`
+	- `mysql> CREATE TABLE posts (id serial PRIMARY KEY, content TEXT, author VARCHAR(255))`
+- Connection between GAE and CloudSQL
+  - [Official documentation](https://cloud.google.com/sql/docs/mysql/connect-app-engine#go)
+  - Description in this book is for an old version of Go with GAE and I fix `app.yaml` and `init()` in `data.go` for the correct connection.
+  
+`app.yaml`;
+
+``` yaml
+runtime: go111
+
+env_variables:
+  INSTANCE_CONNECTION_NAME: <project>:<region>:<instance-id>
+  DB_USER: root
+  DB_PASS: <password>
+  DB_NAME: <database-name>
+```
+
+Database connection part of `data.go`;
+
+``` go
+func init() {
+	// [START cloud_sql_mysql_databasesql_create_socket]
+	var (
+		dbUser                 = mustGetenv("DB_USER")
+		dbPwd                  = mustGetenv("DB_PASS")
+		instanceConnectionName = mustGetenv("INSTANCE_CONNECTION_NAME")
+		dbName                 = mustGetenv("DB_NAME")
+	)
+
+	socketDir, isSet := os.LookupEnv("DB_SOCKET_DIR")
+	if !isSet {
+		socketDir = "/cloudsql"
+	}
+
+	var dbURI string
+	dbURI = fmt.Sprintf("%s:%s@unix(/%s/%s)/%s?parseTime=true", dbUser, dbPwd, socketDir, instanceConnectionName, dbName)
+	
+	var err error
+	Db, err = sql.Open("mysql", dbURI)
+	if err != nil {
+		panic(err)
+	}
+}
+```
+
+Then I have successfully deployed the app by `$ gcloud app deploy`. We can create/retrieve/update/delete post with REST-API. For example;
+
+- `$ curl -i -X POST -H "Content-Type: application/json" -d '{"content":"Hello World!", "author": "Sau Sheong"}' https://xxx.appspot.com/post/` posts a new content
+- `$ curl -i -X GET https://ws-g-dhirooka.uc.r.appspot.com/post/1` retrieves the specified content
+
+## 10.4: Deploy to Docker
+
+This chapter explains about Docker and how to deploy and run a Go web application as a Docker container.
+
+Docker is an open platform enables applications to be built, move, execute on a container.
+Container is a type of infrastructure virtualization. VM emurates a whole computer system including OS. 
+Container virtualizes OS-level operations. This splits the computer resources by multiple user-space instances. As a result, container requires much less resource than VM, can be launched and deployed faster.
+
+Docker concepts and components;
+
+- **Docker engine** (or simply Docker) is composed of multiple components
+- **Docke client** is a command-line interface allows users to interact with Docker daemon
+- **Docker daemon** is a process working on the host OS, responds a service call, manages containers
+- **Docker container** (or container) is a whole program (including OS) composing the target application
+  - The reason why container is light is that applications and other bundled programms only behaves like occupying OS, but actually shares host OS
+  - Docker container is built based on Docker image
+  - Writing Dockerfile is a way to create Docker image
+- **Docker image** can be contained in the local environment same as the Docker daemon, or host on Docker registry
+  - We can use private Docker registry or use Docker Hub as ones registry
+
+When installing Docker into Linux OS like Ubuntu, Docker daemon and Docker client is installed in the same machine.
+If other OS (maxOS, Windows, etc) exists, daemon is normally installed in the VM on the OS.
+Docker container are built from Docker image, run on a Docker host.
+
+Docker-ize Go web application;
+
+1. Create Dockerfile
+2. Create Docker image from the Dockerfile
+3. Build Docke container from Docker image
+4. Create Docker host on a cloud provider
+5. Connect to the remote Docker host
+6. Built Docker image on the remote host
+7. Launch Docker container on the remote host
