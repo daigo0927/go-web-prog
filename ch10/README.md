@@ -184,3 +184,26 @@ Docker-ize Go web application;
 5. Connect to the remote Docker host
 6. Built Docker image on the remote host
 7. Launch Docker container on the remote host
+
+I have skipped the hands-on Docker application because this is less exmplained in the book. Deep explanations about deployment would be better to read other books or courses.
+Code `ws-d` is copied from the [official repository](https://github.com/mushahiroyuki/gowebprog).
+
+## 10.5: Comparison of deployment solutions
+
+|      |Standalone      |Heroku   |GAE   |Docker   |
+|:-----|:-----|:--|:--|:--|
+|Type      |Public/Private  |public   |public   |public   |
+|Code modification |None      |Low      |Middle   |None   |
+|System operation      |High      |None   |None   |Middle   |
+|Maintenance      |High      |None   |None   |Middle   |
+|Easy deployment |Low |High |Middle |Low      |
+|Platform support      |None      |Low   |High   |Low   |
+|Platform dependency      |None      |Low   |High   |Low   |
+|Scalability      |None      |Middle   |High   |High   |
+
+## 10.6: Summary
+
+- We can easily deploy Go web applications by create and put a binary executable file on a VM or a phisical server, and implement Upstart to launch and running it.
+- Heroku is a simple PaaS. We only have to modify a few part of scripts, prepare dependency files by godep, create Procfile. By pushing them to Heroku git repository, the application is deployed.
+- GAE is a sophisticated and sandboxed PaaS provided by Google. Deploying to GAE is a little complicated, but the app get scalable. Most part of restriction with GAE sandbox is about to use of external services.
+- Docker is a good solution to deploy web services or applications, but more complicated. We are required to 1.) create a container of the web service, 2.) deploy it to the local Docker host, 3.) deploy it to the remote Docker host.
